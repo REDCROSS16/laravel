@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -16,6 +16,13 @@ class PagesController extends Controller
 
     public function todos()
     {
+
+        $todo = new Todo();
+        $todo->title = 'Дочитать книгу';
+        $todo->note = 'Начиная с 99 страницы';
+
+        $todo->save();
+
         return view('todos');
     }
 }
