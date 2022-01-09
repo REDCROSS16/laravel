@@ -14,8 +14,8 @@ class PagesController extends Controller
     ]);
     }
 
-    public function testPage()
+    public function todos()
     {
-        return view('test');
+        return view('todos');
     }
 }

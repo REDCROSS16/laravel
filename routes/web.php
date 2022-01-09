@@ -15,8 +15,7 @@ use App\Http\Controllers\PagesController;
 */
 
 
-Route::get('/hello', [PagesController::class, 'helloPage'] );
-Route::get('/test', [PagesController::class, 'testPage'] );
+Route::get('/todos', [PagesController::class, 'todos'] );
 
 
 //Route::get('/post/{id}', function ($id) {
