@@ -16,6 +16,8 @@ use App\Http\Controllers\PagesController;
 
 
 Route::get('/todos', [PagesController::class, 'todos'] );
+Route::get('/todos/done', [PagesController::class, 'todosDone'] );
+Route::get('/todos/not-done', [PagesController::class, 'todosNotDone'] );
 
 
 //Route::get('/post/{id}', function ($id) {

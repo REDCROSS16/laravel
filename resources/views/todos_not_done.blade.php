@@ -2,8 +2,8 @@
 
 @section('content')
     <h1>Todos</h1>
-    <a href="todos/done">Выполнено</a>
-    <a href="todos/not-done">Не выполнено</a>
+    <a href="done">Выполнено</a>
+    <a href="not-done">Не выполнено</a>
     <ul class="list-group">
       @foreach( $todos as $todo)
 
@@ -26,7 +26,3 @@
 
     </ul>
 @endsection
-
-
-
-{{--{{ dd('123') }}-- vardump and die}}--}}
