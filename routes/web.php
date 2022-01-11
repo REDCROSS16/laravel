@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ use App\Http\Controllers\PagesController;
 Route::get('/todos', [PagesController::class, 'todos'] );
 Route::get('/todos/done', [PagesController::class, 'todosDone'] );
 Route::get('/todos/not-done', [PagesController::class, 'todosNotDone'] );
+
+Route::get('/students', [StudentsController::class, 'showAll']);
+Route::get('/students/add', [StudentsController::class, 'add']);
 
 
 //Route::get('/post/{id}', function ($id) {

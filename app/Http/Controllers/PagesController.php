@@ -55,7 +55,8 @@ class PagesController extends Controller
         $todos = Todo::all();
 
         return view('todos', [
-            'todos' => $todos
+            'todos' => $todos,
+            'title' => 'все тудушки'
         ]);
     }
 
@@ -64,7 +65,8 @@ class PagesController extends Controller
 
         $todos = Todo::where('status', '1')->get();
         return view('todos_done', [
-            'todos' => $todos
+            'todos' => $todos,
+            'title' => 'выполненные тудушки'
         ]);
     }
 
@@ -72,7 +74,8 @@ class PagesController extends Controller
     {
         $todos = Todo::where('status', '0')->get();
         return view('todos_not_done', [
-            'todos' => $todos
+            'todos' => $todos,
+            'title' => 'не выполненные тудушки'
         ]);
     }
 }

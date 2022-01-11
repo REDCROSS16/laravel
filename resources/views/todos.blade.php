@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <h1>Todos</h1>
     <a href="todos/done">Выполнено</a>
@@ -26,7 +25,3 @@
 
     </ul>
 @endsection
-
-
-
-{{--{{ dd('123') }}-- vardump and die}}--}}
