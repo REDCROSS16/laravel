@@ -23,6 +23,9 @@ Route::get('/todos/not-done', [PagesController::class, 'todosNotDone'] );
 Route::get('/students', [StudentsController::class, 'showAll']);
 Route::get('/students/add', [StudentsController::class, 'add']);
 
+Route::get('/blog', [PagesController::class, 'blogPage']);
+Route::get('/blog/article/{id}', [PagesController::class, 'articlePage']);
+
 
 //Route::get('/post/{id}', function ($id) {
 //   return 'page id = ' . $id ;

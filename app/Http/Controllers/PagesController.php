@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Article;
+use App\Models\Comment;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
@@ -77,5 +79,35 @@ class PagesController extends Controller
             'todos' => $todos,
             'title' => 'не выполненные тудушки'
         ]);
+    }
+
+
+    public function blogPage()
+    {
+
+        $articles = Article::all();
+        return view('blog', [
+            'title' => 'blog',
+            'articles' => $articles
+        ]);
+    }
+
+
+    public function articlePage($id)
+    {
+        $article = Article::find($id);
+
+        if (!$article) {
+            return abort(404);
+        }
+        $comments = Comment::where('article_id', $id)->get();
+
+//        $article->comments;
+        return view('article',
+            [
+                'article' => $article,
+                'title' => $article->title,
+                'comments'=> $comments
+            ]);
     }
 }
