@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::get('/students/add', [StudentsController::class, 'add']);
 
 Route::get('/blog', [PagesController::class, 'blogPage']);
 Route::get('/blog/article/{id}', [PagesController::class, 'articlePage']);
+
+Route::post('/article', [ArticlesController::class, 'store']);
+Route::post('/article/delete', [ArticlesController::class, 'destroy']);
+Route::get('/article/{id}/update', [PagesController::class, 'articleUpdatePage']);
 
 
 //Route::get('/post/{id}', function ($id) {
