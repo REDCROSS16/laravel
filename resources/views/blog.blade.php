@@ -14,10 +14,43 @@
                 <label for="body">Content</label>
                 <textarea name="body" id="body"  class="form-control" cols="30" rows="10"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Add article</button>
+            <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); addArticle()">Add article</button>
         </form>
 
     </div>
+
+    <script>
+
+
+        function addArticle() {
+            const title = document.querySelector('input[name="title"]').value;
+            const body = document.querySelector('textarea[name="body"]').value;
+
+            let formData =  new FormData();
+            formData.append('title', title);
+            formData.append('body', body);
+
+            console.log(formData)
+            fetch('article', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf"]').getAttribute('content'),
+                }
+            }).then(
+                response => {
+                    console.log(response)
+                    if (response.status === 200) {
+                        location.reload();
+                    }
+                }
+            )
+
+            //
+
+        }
+    </script>
+
     <div class="list-group">
         @foreach ($articles as $article)
         <a href="blog/article/{{$article->id}}" class="list-group-item list-group-item-action">

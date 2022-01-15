@@ -24,12 +24,13 @@ Route::get('/todos/not-done', [PagesController::class, 'todosNotDone'] );
 Route::get('/students', [StudentsController::class, 'showAll']);
 Route::get('/students/add', [StudentsController::class, 'add']);
 
-Route::get('/blog', [PagesController::class, 'blogPage']);
+Route::get('/blog', [PagesController::class, 'blogPage'])->name('blog');
 Route::get('/blog/article/{id}', [PagesController::class, 'articlePage']);
 
 Route::post('/article', [ArticlesController::class, 'store']);
 Route::post('/article/delete', [ArticlesController::class, 'destroy']);
 Route::get('/article/{id}/update', [PagesController::class, 'articleUpdatePage']);
+Route::post('/article/update', [ArticlesController::class, 'update']);
 
 
 //Route::get('/post/{id}', function ($id) {
