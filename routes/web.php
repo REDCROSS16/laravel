@@ -41,3 +41,11 @@ Route::post('/article/update', [ArticlesController::class, 'update']);
 //Route::get('/first-page', function () {
 //    return '<h1 style="font-family: Arial;">This is my first page in Laravel</h1>';
 //});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
