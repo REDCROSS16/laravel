@@ -24,6 +24,36 @@
                                 @enderror
                             </div>
                         </div>
+                        {{--                        login--}}
+                        <div class="row mb-3">
+                            <label for="login" class="col-md-4 col-form-label text-md-end">{{ __('Login') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="login" type="text" class="form-control @error('login') is-invalid @enderror" name="login" value="{{ old('login') }}" required autocomplete="login" autofocus>
+
+                                @error('login')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{--                        dob--}}
+                        <div class="row mb-3">
+                            <label for="dob" class="col-md-4 col-form-label text-md-end">{{ __('Date of birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
+
+                                @error('dob')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
@@ -47,7 +77,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>НУ ТЫ УРОТ! УВЯДЗИ 8 СИМВАЛАУ</strong>
                                     </span>
                                 @enderror
                             </div>

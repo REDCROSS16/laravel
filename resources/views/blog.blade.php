@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="jumbotron">
+        <h2>Hello, {{ Auth::user()->name }}</h2>
+        @if(Auth::check())
+            <p>secret text</p>
+        @endif
         <h1 class="display-4">Articles</h1>
 
         <form action="article" class="mb-4" method="post">
