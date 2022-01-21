@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedInteger('group')->default(1); //1 - обычный , 2 - админ
             $table->rememberToken();
             $table->timestamps();
         });

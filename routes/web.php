@@ -25,7 +25,7 @@ Route::get('/todos/not-done', [PagesController::class, 'todosNotDone'] );
 Route::get('/students', [StudentsController::class, 'showAll']);
 Route::get('/students/add', [StudentsController::class, 'add']);
 
-Route::get('/blog', [PagesController::class, 'blogPage'])->name('blog')->middleware('auth');
+Route::get('/blog', [PagesController::class, 'blogPage'])->name('blog')->middleware('admin')->middleware('auth');
 Route::get('/blog/article/{id}', [PagesController::class, 'articlePage']);
 
 Route::post('/article', [ArticlesController::class, 'store']);
@@ -46,5 +46,8 @@ Route::post('/article/update', [ArticlesController::class, 'update']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin')->middleware('auth');
+
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
