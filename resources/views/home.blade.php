@@ -13,7 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        @if (\Illuminate\Support\Facades\Auth::user()->email_status !== 1)
+                            <h5> Ваш эмейл не подтвержден!</h5>
+                        @endif
                     {{ __('You are logged in!') }}
                 </div>
             </div>

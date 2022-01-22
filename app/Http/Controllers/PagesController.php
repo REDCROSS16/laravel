@@ -126,4 +126,9 @@ class PagesController extends Controller
             'article' => $article
         ]);
     }
+
+    public function emailConfirm()
+    {
+        return view('email-confirm');
+    }
 }

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('dob')->nullable();
             $table->string('email')->unique();
             $table->string('email_verified_at')->nullable();
+            $table->unsignedInteger('email_status')->default(0);
             $table->string('password');
             $table->unsignedInteger('group')->default(1); //1 - обычный , 2 - админ
             $table->rememberToken();
