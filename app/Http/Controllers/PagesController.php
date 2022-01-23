@@ -116,7 +116,7 @@ class PagesController extends Controller
     {
         $article = Article::find($id);
 
-        if(!$article) {
+        if (!$article) {
             abort('404');
         }
 
