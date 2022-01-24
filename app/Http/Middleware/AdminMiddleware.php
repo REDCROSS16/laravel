@@ -10,14 +10,13 @@ class AdminMiddleware
 {
     /**
      * Handle an incoming request.
-     *
+     * миддлвар обрабатывает проверку на админа
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
     {
-        ;
         if (Auth::user()->group !== 2) {
             return abort(403);
         }
