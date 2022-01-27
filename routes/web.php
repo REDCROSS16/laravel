@@ -53,3 +53,4 @@ Route::get('/email-confirm', [PagesController::class, 'emailConfirm'])->name('em
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::get('/birthday', [\App\Http\Controllers\BirthdaysController::class, 'birthday'])->name('birthday');
