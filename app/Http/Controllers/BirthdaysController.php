@@ -58,7 +58,12 @@ class BirthdaysController extends Controller
         return $dates;
     }
 
-    private function getMatch($birthdays)
+    /**
+     * Считает совпадения
+     * @param $birthdays
+     * @return int
+     */
+    private function getMatch($birthdays) : int
     {
         $res = array_count_values($birthdays);
         $dublicates = [];
