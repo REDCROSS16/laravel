@@ -7,6 +7,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Psy\Util\Json;
+use Validator;
 
 class ArticlesController extends Controller
 {
@@ -34,5 +35,37 @@ class ArticlesController extends Controller
             ])->setStatusCode('404', '# POST NOT FOUND #');
         }
         return response()->json($article);
+    }
+
+    /**
+     * Добавление постов
+     */
+    public function storeArticle(Request $request)
+    {
+
+        $request_data = $request->only(['title', 'body']);
+
+        $validator = Validator::make($request_data, [
+            'title' => ['required', 'string'],
+            'body'  => ['required', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'error' => $validator->messages()
+            ])->setStatusCode(422);
+        }
+
+        $article = Article::create([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return response()->json([
+            'status'  => true,
+            'article' => $article
+        ])->setStatusCode(201, 'Article Created');
+
     }
 }
