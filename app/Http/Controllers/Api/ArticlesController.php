@@ -38,7 +38,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Добавление постов
+     * Добавление постов через API
      */
     public function storeArticle(Request $request)
     {
