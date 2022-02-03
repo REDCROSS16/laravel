@@ -82,6 +82,8 @@
         })
     }
 
+
+    // функция на добавление статьи
     function storeArticle(){
         const title = $('#title');
         const body = $('#body');
