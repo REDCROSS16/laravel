@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\ArticlesController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+// API роуты
 // получение списка постов из таблицы articles
 
 Route::get('/articles', [ArticlesController::class, 'showArticles']);
