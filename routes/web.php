@@ -58,3 +58,7 @@ Route::get('/birthday', [\App\Http\Controllers\BirthdaysController::class, 'birt
 Route::get('/test', function () {
     return view('apipost');
 });
+
+Route::get('/resume', function () {
+   return view('resume');
+});
