@@ -53,12 +53,19 @@ Route::get('/email-confirm', [PagesController::class, 'emailConfirm'])->name('em
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('/birthday', [\App\Http\Controllers\BirthdaysController::class, 'birthday'])->name('birthday');
+Route::get('/birthday', [App\Http\Controllers\BirthdaysController::class, 'birthday'])->name('birthday');
 
 Route::get('/test', function () {
     return view('apipost');
 });
 
-Route::get('/resume', function () {
-   return view('resume');
-});
+Route::get('/', [App\Http\Controllers\PagesController::class, 'main'])->name('main')->middleware('auth');
+Route::get('/resume', [App\Http\Controllers\ResumesController::class, 'resume'])->name('resume')->middleware('auth');
+Route::post('/resume', [App\Http\Controllers\ResumesController::class, 'upload'])->name('upload_resume');
+Route::get('/createpdf', [App\Http\Controllers\ResumesController::class, 'createpdf']);
+
+
+Route::get('/upload',[App\Http\Controllers\UploadController::class, 'getForm'])->name('getform');
+Route::post('/upload',[App\Http\Controllers\UploadController::class, 'upload'])->name('upload_file');
+
+

@@ -81,7 +81,6 @@ class PagesController extends Controller
         ]);
     }
 
-
     public function blogPage()
     {
 
@@ -92,7 +91,6 @@ class PagesController extends Controller
         ]);
     }
 
-
     public function articlePage($id)
     {
         $article = Article::find($id);
@@ -102,7 +100,6 @@ class PagesController extends Controller
         }
         $comments = Comment::where('article_id', $id)->get();
 
-//        $article->comments;
         return view('article',
             [
                 'article' => $article,
@@ -110,7 +107,6 @@ class PagesController extends Controller
                 'comments'=> $comments
             ]);
     }
-
 
     public function articleUpdatePage($id)
     {
@@ -130,5 +126,10 @@ class PagesController extends Controller
     public function emailConfirm()
     {
         return view('email-confirm');
+    }
+
+    public function main ()
+    {
+        return view('main');
     }
 }
